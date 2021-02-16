@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">    
+        <title>网易云白嫖带师</title>
+        <script src="https://api.xiaomingming.org/jss/jquery.min.js"></script>
+        <script src="https://api.xiaomingming.org/jss/bootstrap.min.js"></script>
+        <script src="https://api.xiaomingming.org/jss/html5shiv.min.js"></script>
+        <link href="https://api.xiaomingming.org/jss/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="https://api.xiaomingming.org/jss//bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <script type="text/javascript">    
+            window.onblur=function(){        
+            document.title="回来qwq";    
+            };    
+            window.onfocus=function () {        
+            document.title="网易云白嫖带师";   
+            }
+        </script>
+
+        <div id="body">
+            <div class="row-fluid">
+                <div class="logopic">
+                </div>
+            </div>
+            <div class="container">
+                <div id="container">
+                    <div class="row">
+                        <div class="span8 offset2">
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#bilipic" data-toggle="tab">网易云白嫖</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="bilipic">
+                                        <form name="myform">
+                                            <input style="width: 500px;height:25px;" type="text" name="name" placeholder="复制链接到这里" />
+                                            <input type="button" name="button" value="Get！" onclick="print()" />
+                                        </form>
+                                        <div class="shuoming"></div>
+                                        <div class="info">登录网页版网易云音乐，在你需要下载（白嫖）的歌曲播放界面复制其完整网页链接</div>
+                                        <div class="info">将链接复制过来后，点击“Get！”按钮。不要使用回车键或输入法中的确定!</div>
+                                        <div class="info">.</div>
+                                        <div class="info">By ItsNotch233</div>
+                                        <span id=text></span>
+                                        <script language="javascript">
+                                            function print(){
+                                                var str=myform.name.value;
+                                                var aa=(str.substring(str.lastIndexOf("=")));
+                                                var aaa="http://music.163.com/song/media/outer/url?id"+aa+".mp3";
+                                                text.outerHTML="<a target='_blank' href="+aaa+">"+aaa+"</a>";
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+            </div>
+        </div>
+        <script>
+            // 禁用f12及复制
+            document.onselectstart=function(){return false;};
+                 window.oncontextmenu=function(){return false;}  
+                 window.onkeydown = window.onkeyup = window.onkeypress = function (event) { 
+                if(event.code == 'F12'){
+                  window.event.returnValue = false; 
+                   return false;
+                 }
+                }
+        </script>
+    </body>
+</html>
