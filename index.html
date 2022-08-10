@@ -1,77 +1,113 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">    
-        <title>网易云白嫖带师</title>
-        <script src="https://api.xiaomingming.org/jss/jquery.min.js"></script>
-        <script src="https://api.xiaomingming.org/jss/bootstrap.min.js"></script>
-        <script src="https://api.xiaomingming.org/jss/html5shiv.min.js"></script>
-        <link href="https://api.xiaomingming.org/jss/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="https://api.xiaomingming.org/jss//bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        <script type="text/javascript">    
-            window.onblur=function(){        
-            document.title="回来qwq";    
-            };    
-            window.onfocus=function () {        
-            document.title="网易云白嫖带师";   
-            }
-        </script>
+<html>
 
-        <div id="body">
-            <div class="row-fluid">
-                <div class="logopic">
-                </div>
-            </div>
-            <div class="container">
-                <div id="container">
-                    <div class="row">
-                        <div class="span8 offset2">
-                            <div class="tabbable">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#bilipic" data-toggle="tab">网易云白嫖</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="bilipic">
-                                        <form name="myform">
-                                            <input style="width: 500px;height:25px;" type="text" name="name" placeholder="复制链接到这里" />
-                                            <input type="button" name="button" value="Get！" onclick="print()" />
-                                        </form>
-                                        <div class="shuoming"></div>
-                                        <div class="info">登录网页版网易云音乐，在你需要下载（白嫖）的歌曲播放界面复制其完整网页链接</div>
-                                        <div class="info">将链接复制过来后，点击“Get！”按钮。不要使用回车键或输入法中的确定!</div>
-                                        <div class="info">.</div>
-                                        <div class="info">By ItsNotch233</div>
-                                        <span id=text></span>
-                                        <script language="javascript">
-                                            function print(){
-                                                var str=myform.name.value;
-                                                var aa=(str.substring(str.lastIndexOf("=")));
-                                                var aaa="http://music.163.com/song/media/outer/url?id"+aa+".mp3";
-                                                text.outerHTML="<a target='_blank' href="+aaa+">"+aaa+"</a>";
-                                            }
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-            </div>
-        </div>
-        <script>
-            // 禁用f12及复制
-            document.onselectstart=function(){return false;};
-                 window.oncontextmenu=function(){return false;}  
-                 window.onkeydown = window.onkeyup = window.onkeypress = function (event) { 
-                if(event.code == 'F12'){
-                  window.event.returnValue = false; 
-                   return false;
-                 }
-                }
-        </script>
-    </body>
+<head>
+<!--    声明网页使用的编码格式-->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--    定义查看端（防移动端冲突）-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<!--	声明作者-->
+	<meta name="author" content="ItsNotch_404">
+
+    <title>Test001</title>
+	
+<!--	调用css和js脚本-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!--字体图标css调用-->
+    <link rel="stylesheet" href="001.css"><!--整体css调用-->
+	<script src="jquery.min.js"></script><!--动态输入框js调用-->
+	<script src="particle.min.js"></script><!--全屏粒子特效js调用-->
+</head>
+
+<body>
+	
+	<canvas id="my_canvas"></canvas>
+	
+    <div id="plane">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </div>
+	
+    <script>
+        let plane=document.getElementById('plane');
+        let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
+        window.addEventListener('mousemove',(e)=>{
+            ex=e.pageX-plane.offsetLeft-plane.clientWidth/2;
+            ey=e.pageY-plane.offsetTop-plane.clientHeight/2;
+            deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
+            if(ex<0){
+                deg+=180;
+            }
+            count=0;
+        })
+        function draw(){
+            plane.style.transform='rotate('+deg+'deg)';
+            if(count<100){
+                vx+=ex/100;
+                vy+=ey/100;
+            }
+            plane.style.left=vx+'px';
+            plane.style.top=vy+'px';
+            count++;
+        }
+        setInterval(draw, 1);
+    </script>
+	
+	<script>
+    	particle.init('my_canvas');
+	</script>
+	
+	<div id="body">
+		<div class="middle">
+			<form class="search-box" method="post" name="myform" >
+				<input type="text" class="input" name="name" value="" onkeydown="tab(event)" id="ssubmit">
+				<input type="text" style="display:none" />
+				<button type="button" class="btn" name="button"></button>
+			</form>
+    	
+			<span id="text1"></span>
+			<script language="javascript">
+
+				document.onkeydown = function(event) {
+					var target, code, tag;
+					if (!event) {
+						event = window.event;
+						target = event.srcElement;
+						code = event.keyCode;
+						if (code == 13) {
+							tag = target.tagName;
+							if (tag == "TEXTAREA") { print();return true; }
+								else { return false; }
+						}
+					}
+					else {
+						target = event.target;
+						code = event.keyCode;
+							if (code == 13) {
+								tag = target.tagName;
+								if (tag == "INPUT") { print();return false; }
+									else { return true; }
+							}	
+					}
+				};
+
+				function print(){
+					var str=myform.name.value;
+					var str1=(str.substring(0,str.lastIndexOf("=")));
+					var aa=(str.substring(str.lastIndexOf("=")));
+					var aaa="http://music.163.com/song/media/outer/url?id"+aa+".mp3";
+					text1.outerHTML="<a target='_self' href="+aaa+" download="+aaa+">"+aaa+"</a>";
+					}
+
+				$(".btn").on("click",function() {
+					$(".input").toggleClass("inclicked");
+					$(".btn").toggleClass("close");
+//					$("#ssubmit").val("");
+					if	(myform.name.value!="") {location.reload();}
+				});
+
+			</script>
+		</div>
+	</div>
+
+</body>
+	
 </html>
